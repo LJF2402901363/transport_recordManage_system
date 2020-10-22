@@ -11,7 +11,7 @@ import com.qst.dms.util.ConstantsConfig;
 public class DaoFactory {
   /**
    * 通过一个dao的实现类返回对应的实现类
- * @return 返回一个
+ * @return 返回一个dao实例
  */
 public static DAO<?> getDaoImpl(String daoName){
 	try {

@@ -15,22 +15,22 @@ public interface MatchedLogRecDao extends DAO<MatchedLogRec>{
 public List<MatchedLogRec> getAll();
 /**
  * 移除指定的对象
- * @param loginid
- * @param logoutid
+ * @param loginid 登入的ID
+ * @param logoutid 登出的ID
  * @return  移除成功返回true，否则返回false
  */
 public boolean remove(int loginid,int logoutid);
 /**
  * 保存数据
- * @param loginid
- * @param logoutid
+  * @param loginid 登入的ID
+ * @param logoutid 登出的ID
  * @return  保存成功返回true，否则返回false
  */
 public boolean save(int loginid,int logoutid);
 /**
  * 返回满足loginid 和 logoutid 同时的数据是否存在
- * @param loginid
- * @param logoutid
+  * @param loginid 登入的ID
+ * @param logoutid 登出的ID
  * @return存在返回true，否则返回false
  */
 public boolean isExits(int loginid,int logoutid);

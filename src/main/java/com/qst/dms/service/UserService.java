@@ -71,6 +71,7 @@ public void saveToDataBase(List<User> list) {
 @Override
 public void saveToDataBase(User... params) {
 	for(User user:params){
+	   //首先获取该用户，如果该用户已经存在则不用保存
 		User u  = this.userDao.getUser(user.getUserName(), user.getPassword());
 		if(u == null){
 			this.userDao.save(user);

@@ -61,7 +61,7 @@ public class ImplUserDao implements UserDao {
 		return list.size()==0?null:list.get(0);
 	}
 	/**
-	 * @param username
+	 * @param username 用户名
 	 * @return 返回所有该用户名的集合
 	 */
 	public List<User> getUserByUserName(String username) {

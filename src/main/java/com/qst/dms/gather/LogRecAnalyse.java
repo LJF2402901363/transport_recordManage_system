@@ -61,15 +61,6 @@ public class LogRecAnalyse extends DataFilter implements IDataAnalyse {
 				}
 			}
 		}
-		
-//		try {
-//			if (matchLogs.size() == 0) {
-//				// 没找到匹配的数据,抛出DataAnalyseException异常
-//				throw new DataAnalyseException("没有匹配的日志数据！");
-//			}
-//		} catch (DataAnalyseException e) {
-//			e.printStackTrace();
-//		}
 		//将暂时存储的记录清空
 		LogRecStore.getLogs().clear();
 		return matchLogs;

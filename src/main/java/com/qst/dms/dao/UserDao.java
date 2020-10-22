@@ -15,8 +15,8 @@ public interface UserDao extends DAO<User>{
  */
 public List<User> getAll();
 /**
- * @param username
- * @param password
+ * @param username 用户名
+ * @param password 用户密码
  * @return 返回匹配该用户的对象
  */
 public User getUser(String username,String password);

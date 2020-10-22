@@ -16,6 +16,7 @@ import com.qst.dms.service.TransportService;
  *2019年12月19日  下午7:08:03
  */
 public class ServerThread  extends Thread{
+  
    private ServerSocket serverSocket = null;
    private ObjectInputStream oism = null;
    private boolean isRunning = true;
@@ -47,16 +48,20 @@ public class ServerThread  extends Thread{
 	  while(isRunning){
 		  try {
 				System.out.println("等待客户端连接。。。。。。");
+				//线程阻塞，等待客户端连接
 			   Socket cilent = this.serverSocket.accept();
 			System.out.println("连接客户端成功！");
+			//获取客户端发送的数据
 			this.oism = new ObjectInputStream(cilent.getInputStream());
 			Object obj = null;
 			try {
 				while((obj =this.oism.readObject())!=null){
 					if(obj instanceof MatchedLogRec){
+						//保存数据到数据库
 						this.logRecService.saveToDataBase((MatchedLogRec)obj);
 						System.out.println((MatchedLogRec)obj);
 					}else if(obj instanceof MatchedTransport){
+						//保存数据到数据库
 						this.transportService.saveToDataBase((MatchedTransport)obj);
 					}
 				}
