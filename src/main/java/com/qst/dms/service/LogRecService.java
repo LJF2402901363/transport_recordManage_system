@@ -18,7 +18,9 @@ public class LogRecService  extends Service<MatchedLogRec> {
 	private ImplLogRecDao logRecDao = null;
 	@SuppressWarnings("javadoc")
 	public LogRecService() {
+		//通过工厂模式获取对象实例
 		this.matchedLogRecDao = (ImplMatchedLogRecDao) DaoFactory.getDaoImpl("ImplMatchedLogRecDao");
+		//通过工厂模式获取对象实例
 		this.logRecDao = (ImplLogRecDao) DaoFactory.getDaoImpl("ImplLogRecDao");;
 	}
 /**
@@ -28,13 +30,17 @@ public void saveToDataBase(List<MatchedLogRec> matchLogs ){
 		if (matchLogs == null) {
 			return;
 		}
+		//将所有的MatchedLogRec逐个保存到数据库中去
 		for (int i = 0; i < matchLogs.size(); i++) {
 			MatchedLogRec matchLog = matchLogs.get(i);
+			//获取登入ID
 			int loginid = matchLog.getLogin().getId();
+			//获取登出ID
 			int logoutid = matchLog.getLogout().getId();
 			boolean fla = this.matchedLogRecDao.isExits(loginid, logoutid);
 			if (!fla) {
 				System.out.println(matchLog);
+				//开始保存
 				boolean fla1 = this.logRecDao.save(matchLog.getLogin());
 				boolean fla2 = this.logRecDao.save(matchLog.getLogout());
 				if (!fla1 || !fla2) {
@@ -42,12 +48,18 @@ public void saveToDataBase(List<MatchedLogRec> matchLogs ){
 				}
 			}
 		}
+		//获取所有的LogRec
 		List<LogRec> list = this.logRecDao.getAll();
+		//每次保留两个
 		for (int i = 0; i < list.size(); i = i + 2) {
+			//获取登入的LogRec
 			LogRec login = list.get(i);
+			//获取登出的LogRec
 			LogRec logout = list.get(i + 1);
+			//首先判断是否在数据库中存在
 			boolean fla = this.matchedLogRecDao.isExits(login.getId(), logout.getId());
 			if (!fla) {
+				//不存在则保存
 				this.matchedLogRecDao.save(login.getId(), logout.getId());
 			}
 		}
@@ -58,14 +70,20 @@ public void saveToDataBase(List<MatchedLogRec> matchLogs ){
  * @return 返回是否移除成功
  */
 public boolean remove(int id){
+	//通过ID获取登入登出的两个对象的ID数组
 	Integer[] ids = this.matchedLogRecDao.getMatchedLogId(id);
 	if(ids == null || ids.length != 2){
 		return false;
 	}
+	//登入ID
 	int loginid = ids[0];
+	//登出ID
 	int logoutid = ids[1];
+	//在 gather_logrec表中删除登入ID
 	boolean fla1 =this.logRecDao.remove(loginid);
+	//在 gather_logrec表中删除登出ID
 	boolean fla2 =this.logRecDao.remove(logoutid);
+	//在 matched_logrec中删除这条记录
 	boolean fla3 = this.matchedLogRecDao.remove(loginid, logoutid);
 	if(fla1&&fla2&&fla3){
 		return true;
@@ -85,7 +103,6 @@ public void saveToDataBase(MatchedLogRec... matchLogs ){
 	}
 	   for(int i = 0;i < matchLogs.length;i++){
 		 MatchedLogRec matchLog = matchLogs[i];
-		 
 		 int loginid = matchLog.getLogin().getId();
 		 int logoutid = matchLog.getLogout().getId();
 		 boolean fla = this.matchedLogRecDao.isExits(loginid, logoutid);

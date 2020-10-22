@@ -15,9 +15,13 @@ import com.qst.dms.entity.MatchedTransport;
  *2019年12月19日  下午6:38:41
  */
 public class ClientThread  extends Thread{
+	  //客户端套节字
       private Socket client = null;
+      //对象输出流
       private ObjectOutputStream osm = null;
+      //端口
       private int port ;
+      //IP
       private String ip ;
       @SuppressWarnings("javadoc")
 	public ClientThread(String ip ,int port){
@@ -38,10 +42,11 @@ public class ClientThread  extends Thread{
     * @param logRecList
     */
    public void sendMatchedLogRec(List<MatchedLogRec> logRecList){
-	   System.out.println(this.client);
-   	 for(MatchedLogRec MatchedlogRec:logRecList){
+   	 for(MatchedLogRec matchedlogRec:logRecList){
    		 try {
-				this.osm.writeObject(MatchedlogRec);
+   			  //将每个matchedlogRec发送到服务器
+				this.osm.writeObject(matchedlogRec);
+				//刷新立马发送
 				this.osm.flush();
 			} catch (IOException e) {
 				try {
@@ -66,10 +71,11 @@ public class ClientThread  extends Thread{
    	if(logRecList == null){
    		return;
    	}
-  	 for(MatchedLogRec MatchedlogRec:logRecList){
+  	 for(MatchedLogRec matchedlogRec:logRecList){
   		 try {
-				this.osm.writeObject(MatchedlogRec);
-				
+  			//将每个matchedlogRec发送到服务器
+				this.osm.writeObject(matchedlogRec);
+				//刷新立马发送
 				this.osm.flush();
 			} catch (IOException e) {
 				try {
@@ -93,8 +99,9 @@ public class ClientThread  extends Thread{
   public void sendMatchedTransport(List<MatchedTransport> transList){
 	 	 for(MatchedTransport matchedTransport:transList){
 	 		 try {
+	 			//将每个matchedTransport发送到服务器
 					this.osm.writeObject(matchedTransport);
-					
+					//刷新立马发送
 					this.osm.flush();
 				} catch (IOException e) {
 					try {
@@ -121,8 +128,9 @@ public class ClientThread  extends Thread{
   	}
  	 for(MatchedTransport matchedTransport:transList){
  		 try {
+ 			//将每个matchedTransport发送到服务器
 				this.osm.writeObject(matchedTransport);
-				
+				//刷新立马发送
 				this.osm.flush();
 			} catch (IOException e) {
 				try {

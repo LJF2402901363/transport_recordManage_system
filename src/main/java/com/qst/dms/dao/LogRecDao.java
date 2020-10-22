@@ -12,7 +12,7 @@ import com.qst.dms.entity.LogRec;
 public interface LogRecDao extends DAO<LogRec>{
 	/**
 	 * 移除数据库中指定的数据
-	 * @param logRec
+	 * @param logRec 需要删除的日志记录
 	 * @return 移除陈宫返回true，否则返回false
 	 */
 	public boolean remove( LogRec logRec);

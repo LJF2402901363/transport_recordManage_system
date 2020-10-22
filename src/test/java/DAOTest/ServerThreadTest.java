@@ -1,7 +1,6 @@
 package DAOTest;
 
 import java.util.Date;
-import java.util.List;
 
 
 import com.qst.dms.dao.impl.ImplMatchedLogRecDao;

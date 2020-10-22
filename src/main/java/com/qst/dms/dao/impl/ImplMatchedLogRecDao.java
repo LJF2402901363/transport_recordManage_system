@@ -16,6 +16,7 @@ import com.qst.dms.util.DbUtil;
  *2019年11月22日  下午7:19:17
  */
 public class ImplMatchedLogRecDao implements MatchedLogRecDao {
+  /**LogRec实体类对应数据库中表名**/
   private static final String tableName=ConstantsConfig.MATCHED_LOGREC;
 	@Override
 	public boolean save(MatchedLogRec matchedLogRec) {
@@ -86,8 +87,8 @@ public class ImplMatchedLogRecDao implements MatchedLogRecDao {
 	return null;
 	}
 	/**
-	 * 通过登入的id和登出的id
-	 * @param id
+	 * 通过登入的id和登出的id返回同记录数组，每个ID对应两个结果，为一个数组
+	 * @param id 登入和登出的ID
 	 * @return 返回登入和登出的id数组
 	 */
 	public Integer[]  getMatchedLogId(int id) {
@@ -95,9 +96,11 @@ public class ImplMatchedLogRecDao implements MatchedLogRecDao {
 		Integer[] ids = DbUtil.executeQuery(sql, new ResultHandler<Integer[]>() {
 			@Override
 			public Integer[] handleResult(ResultSet set) {
+				//ID数组
 				Integer[] ids = new Integer[2];
 				try {
 					if (set.next()) {
+						//获取结果集第一个ID作为登入ID，第二个为登出ID
 						int loginid = set.getInt(1);
 						int logoutid = set.getInt(2);
 						ids[0] = loginid;
@@ -121,6 +124,7 @@ public class ImplMatchedLogRecDao implements MatchedLogRecDao {
 			@Override
 			public Integer handleResult(ResultSet set) {
 				try {
+					//如果有有一个结果则存在，否则不存在
 					if (set.next()) {
 						return 1;
 					}
@@ -157,13 +161,18 @@ class MatchedLogRecHandler implements ResultHandler<List<MatchedLogRec>> {
 		MatchedLogRec matchedLogRec = null;
 		try {
 			while (set.next()) {
+				//获取登入ID
 				int loginid = set.getInt("loginid");
+				//获取登出ID
 				int logoutid = set.getInt("logoutid");
+				//通过登入ID获取完整对象
 				LogRec login = dao.get(loginid);
+				//通过登出ID获取完整对象
 				LogRec logout = dao.get(logoutid);
 				if (login == null || logout == null) {
 					continue;
 				}
+				//获取匹配的记录
 				matchedLogRec = new MatchedLogRec(login, logout);
 				list.add(matchedLogRec);
 			}
