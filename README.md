@@ -1,5 +1,5 @@
 # 项目名：transport_recordManage_system
-### 简介：
+### 简介：物流日志管理系统
 
 ### 1.该项目以JavaSE为基础，使用面向对象编程。
 
