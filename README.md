@@ -103,3 +103,4 @@ git clone https://gitee.com/ljf2402901363/transport_recordManage_system.git
 
 这是因为在eclipse中的配置文件中是以UTF-8 with BOM来保存的，而idea默认的是""UTF-8 with no BOM来保存。因此eclipse项目中的配置文件在idea中运行时需要 首先将项目 “remove BOM”才可以正常运行。
 
+### 8.4项目运行演示地址：https://www.bilibili.com/video/BV1354y1r7wj
