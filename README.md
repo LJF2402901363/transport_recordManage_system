@@ -97,7 +97,7 @@ git clone https://gitee.com/ljf2402901363/transport_recordManage_system.git
 
 ### 8.2以maven项目在eclipse打开然后可以加载好后可以找到app包中的AppMain.java开始运行即可。
 
-### 7.3以maven项目在idea中打开，运行时如果控制台出现“java: 非法字符: '\ufeff'”的提示，需要鼠标右键“TransportManageRecordSystem”项目，然后点击“Remove BOM”选项。
+### 8.3以maven项目在idea中打开，运行时如果控制台出现“java: 非法字符: '\ufeff'”的提示，需要鼠标右键“TransportManageRecordSystem”项目，然后点击“Remove BOM”选项。
 
 ![image-20201023101845957](readMeImages/image-20.png)
 
