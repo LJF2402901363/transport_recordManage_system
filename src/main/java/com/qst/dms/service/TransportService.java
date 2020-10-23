@@ -1,14 +1,8 @@
 ﻿package com.qst.dms.service;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.List;
 
 import com.qst.dms.dao.impl.ImplMatchedTransportDao;
 import com.qst.dms.dao.impl.ImplTransportDao;
-import com.qst.dms.entity.MatchedLogRec;
 import com.qst.dms.entity.MatchedTransport;
 import com.qst.dms.entity.Transport;
 import com.qst.dms.factory.DaoFactory;

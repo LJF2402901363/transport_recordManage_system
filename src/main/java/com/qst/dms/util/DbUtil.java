@@ -38,7 +38,7 @@ public class DbUtil {
     }
     
     /**
-     * @return 返回一个没有连接池的连接对象
+     * @return 返回一个Druid连接池的连接对象
      */
     public static Connection getDruidConnection(){
     	try {
@@ -100,8 +100,8 @@ public class DbUtil {
     }
     /**
      * 查询和更新元素使用
-     * @param sql
-     * @param params
+     * @param sql 要执行的SQL语句
+     * @param params SQL中占位符对应的真实值的数组
      * @return 返回一个结果的标识
      */
     public static int executeUpdate(String sql,Object... params){
@@ -144,9 +144,9 @@ public class DbUtil {
    
     /**
      * 查询并返回结果集
-     * @param sql
+     * @param sql 要执行的SQL语句
      * @param resultHandler 结果集的处理器
-     * @param params
+     * @param params SQL中占位符对应的真实值的数组
      * @return  返回查询的结果
      */
     public static <T> T executeQuery(String sql,ResultHandler<T> resultHandler,Object... params){

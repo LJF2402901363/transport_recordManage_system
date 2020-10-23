@@ -1,7 +1,6 @@
 package com.qst.dms.app;
 
 import com.qst.dms.ui.LoginFrame;
-import com.qst.dms.ui.MainFrame;
 
 /**
  * @author 陌意随影

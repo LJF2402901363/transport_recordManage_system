@@ -1,14 +1,8 @@
 package com.qst.dms.tablemodel;
-
 import java.io.Serializable;
 import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
-
 import javax.swing.table.AbstractTableModel;
-
 import com.qst.dms.entity.LogRec;
-import com.qst.dms.service.LogRecService;
 
 
 /**

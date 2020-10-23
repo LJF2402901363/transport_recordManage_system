@@ -1,13 +1,8 @@
 package com.qst.dms.dao.impl;
 
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.ParseException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-
 import com.qst.dms.dao.LogRecDao;
 import com.qst.dms.dao.ResultHandler;
 import com.qst.dms.entity.LogRec;

@@ -3,7 +3,6 @@ package com.qst.dms.service;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -18,7 +17,7 @@ import com.qst.dms.util.AppendObjectOutputStream;
  * @param <T>
  */
 public abstract class Service<T> implements BaseService<T>{
-	public void saveToLocal(String pathName, T... params) {
+	public void saveToLocal(String pathName, @SuppressWarnings("unchecked") T... params) {
 		 if(params == null || params.length == 0|| pathName == null|| pathName.length() == 0 ){
 			 return ;
 		 }
