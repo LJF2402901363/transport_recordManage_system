@@ -1,5 +1,5 @@
 # 项目名：transport_recordManage_system
-### 简介：物流日志管理系统
+### 简介：物流日志管理系统（下载后到本地打开该readme.md文件会正常显示图片）
 
 ### 1.该项目以JavaSE为基础，使用面向对象编程。
 
@@ -7,11 +7,11 @@
 
 #### 2.1登录页面自定义实现一个JLabel作为验证码在登陆的时候进行验证码登录以及对用户名和密码的输入进行了智能提示。
 
-![image-20201022234816971](readMeImages/image-1.png)
+![image-20201022234816971](F:/test/transport_recordManage_system/readMeImages/image-1.png)
 
 #### 2.2主页面可以支持修改个人信息实时监控密码框的文本变化
 
-![image-20201022235057020](readMeImages/image-2.png)
+![image-20201022235057020](F:/test/transport_recordManage_system/readMeImages/image-2.png)
 
 ![image-20201022235118484](readMeImages/image-3.png)
 
@@ -99,8 +99,10 @@ git clone https://gitee.com/ljf2402901363/transport_recordManage_system.git
 
 ### 8.3以maven项目在idea中打开，运行时如果控制台出现“java: 非法字符: '\ufeff'”的提示，需要鼠标右键“TransportManageRecordSystem”项目，然后点击“Remove BOM”选项。
 
-![image-20201023101845957](readMeImages/image-20.png)
+![image-20201023101845957](F:/test/transport_recordManage_system/readMeImages/image-20.png)
 
 这是因为在eclipse中的配置文件中是以UTF-8 with BOM来保存的，而idea默认的是""UTF-8 with no BOM来保存。因此eclipse项目中的配置文件在idea中运行时需要 首先将项目 “remove BOM”才可以正常运行。
 
-### 8.4项目运行演示地址：https://www.bilibili.com/video/BV1354y1r7wj
+###  8.4在本地中新建一个数据库 q_dms,然后导入项目的sql文件
+
+### 8.5项目运行演示地址：https://www.bilibili.com/video/BV1354y1r7wj
